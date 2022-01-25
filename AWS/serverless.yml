@@ -1,0 +1,14 @@
+service: grafico-ingresos-tri
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ing
+  region: us-east-2
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: ANY {proxy+}
